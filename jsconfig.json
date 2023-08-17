@@ -20,14 +20,17 @@
             "@routes/*": [
                 "src/routes/*"
             ],
-            "@HomePage/*": [
-                "src/pages/HomePage/*"
+            "@Navbar/*": [
+                "src/components/Navbar/*"
             ],
-            "@AboutPage/*": [
-                "src/pages/AboutPage/*"
+            "@Layout/*": [
+                "src/components/Layout/*"
             ],
-            "@NotFoundPage/*": [
-                "src/pages/NotFoundPage/*"
+            "@calculations/*": [
+                "src/utils/calculations/*"
+            ],
+            "@units/*": [
+                "src/utils/calculations/units/*"
             ]
         }
     }
