@@ -20,17 +20,23 @@
             "@routes/*": [
                 "src/routes/*"
             ],
-            "@Navbar/*": [
-                "src/components/Navbar/*"
+            "@styles/*": [
+                "src/styles/*"
             ],
-            "@Layout/*": [
-                "src/components/Layout/*"
+            "@data/*": [
+                "src/data/*"
             ],
-            "@calculations/*": [
-                "src/utils/calculations/*"
+            "@hooks/*": [
+                "src/hooks/*"
             ],
-            "@units/*": [
-                "src/utils/calculations/units/*"
+            "@NotFoundCard/*": [
+                "src/components/NotFoundCard/*"
+            ],
+            "@MessageCard/*": [
+                "src/components/MessageCard/*"
+            ],
+            "@UnderConstruction/*": [
+                "src/pages/UnderConstruction/*"
             ]
         }
     }

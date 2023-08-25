@@ -1,83 +1,35 @@
+import { faToolbox } from '@fortawesome/free-solid-svg-icons';
+import { faHouse } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { NavLink } from 'react-router-dom';
+
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
-      <div className="container-fluid">
-        <a className="navbar-brand" href="#">
-          Engineering tools
-        </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon" />
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Home
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Link
-              </a>
-            </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <ul className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link disabled" aria-disabled="true">
-                Disabled
-              </a>
-            </li>
-          </ul>
-          <form className="d-flex" role="search">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
+    <nav className="font-sans top-0 flex justify-between items-center fixed z-10 w-full py-3 px-5 text-sm font-light bg-gray-600 h-11">
+      <ul className="flex flex-row justify-around w-full items-center">
+        <li className="flex-row items-center justify-center hidden lg:flex">
+          <FontAwesomeIcon
+            className="text-white text-lg"
+            icon={faToolbox}
+          />
+          <h2 className="text-lg text-white pl-2">
+            Engineering toolbox
+          </h2>
+        </li>
+        <NavLink to={'/'}>
+          <li className="flex flex-row items-center justify-center">
+            <FontAwesomeIcon
+              className="text-white text-lg transition hover:text-gray-300 cursor-pointer"
+              icon={faHouse}
             />
-            <button className="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
-        </div>
-      </div>
+            <span className="text-lg text-white pl-2 hidden lg:block">
+              Inicio
+            </span>
+          </li>
+        </NavLink>
+        <li>B</li>
+        <li>C</li>
+      </ul>
     </nav>
   );
 };

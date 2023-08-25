@@ -1,38 +1,77 @@
-const CardLayout = () => {
+import { useState } from 'react';
+import { useId } from 'react';
+import PropTypes from 'prop-types';
+import useCard from '@/hooks/useCard';
+import FieldContainer from '@components/FieldContainer';
+
+const CardLayout = ({ calc }) => {
+  const id = useId();
+  const [result, setResult] = useState(0);
+  const { form, onCalc } = useCard();
+
+  const handleCalculation = (e) => {
+    let result = Math.round(calc.function({ ...form }));
+    setResult(Object.keys(form).length === 0 ? 0 : result);
+    e.preventDefault();
+  };
+
+  const clearResult = () => {
+    setResult(0);
+  };
+
   return (
-    <article className="card mb-3">
-      <section className="card-body text-center">
-        <h2 className="">Card title</h2>
-        <form className="container text-center">
-          <legend>Disabled fieldset example</legend>
-          <section className="mb-3 row gap-2">
-            <div className="col px-0">
-              <label className="form-label">Label</label>
-              <input className="form-control" type="text" />
-            </div>
-            <div className="col px-0">
-              <label className="form-label">Label</label>
-              <input className="form-control" type="text" />
+    <form
+      className="flex flex-row border rounded-lg w-80 justify-center items-center h-auto"
+      onSubmit={handleCalculation}
+    >
+      <section className="text-center pt-2">
+        <h2 className="text-xl font-bold mb-2 text-justify w-auto px-4 text-gray-800">
+          {calc.title}
+        </h2>
+        <article className="w-full text-left px-4">
+          <legend className="text-sm text-gray-400 w-full text-justify">
+            {calc.description}
+          </legend>
+          <section className="mb-3">
+            {calc.fields.map((field, index) => (
+              <FieldContainer
+                key={id + index}
+                label={field.label}
+                name={field.name}
+                event={onCalc}
+              />
+            ))}
+          </section>
+          <section className="mb-3">
+            <div>
+              <label className="pr-2 text-gray-800 font-bold">Resultado:</label>
+              <input className="" type="text" disabled value={result} />
             </div>
           </section>
-          <section className="mb-3 row">
-            <div className="col px-0">
-              <label className="form-label">Label</label>
-              <input className="form-control" type="text" />
-            </div>
-          </section>
-          <section className="mb-3 row px-0">
-            <button type="button" className="btn btn-primary mb-2">
-              Primary
+          <section className="flex flex-row justify-between w-full items-center mb-4">
+            <button
+              type="button"
+              className="w-20 font-thin text-md text-center text-white bg-slate-500 hover:bg-slate-900 transition ease-in active:scale-90 h-auto rounded-md pb-1"
+              onClick={handleCalculation}
+            >
+              Calcular!
             </button>
-            <button type="button" className="btn btn-danger mb-2">
-              Danger
+            <button
+              type="button"
+              className="w-40 font-thin text-md text-center text-white bg-red-600/50 hover:bg-red-600 transition ease-in active:scale-90 h-auto rounded-md pb-1"
+              onClick={clearResult}
+            >
+              Limpiar resultado
             </button>
           </section>
-        </form>
+        </article>
       </section>
-    </article>
+    </form>
   );
+};
+
+CardLayout.propTypes = {
+  calc: PropTypes.object.isRequired,
 };
 
 export default CardLayout;
