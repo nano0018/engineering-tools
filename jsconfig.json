@@ -37,6 +37,12 @@
             ],
             "@UnderConstruction/*": [
                 "src/pages/UnderConstruction/*"
+            ],
+            "@Footer/*": [
+                "src/components/Footer/*"
+            ],
+            "@MainLayout/*": [
+                "src/components/MainLayout/*"
             ]
         }
     }

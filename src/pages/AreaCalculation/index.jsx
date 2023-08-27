@@ -1,18 +1,15 @@
 import Layout from '@components/Layout';
-import Navbar from '@components/Navbar';
 import CardContainer from '@components/CardContainer';
 import { areas } from '@/data/areaFieldList';
+import MainLayout from '@components/MainLayout';
 
 const AreaCalculation = () => {
   return (
-    <>
-      <Navbar />
+    <MainLayout>
       <Layout>
-        <CardContainer
-        calculation={areas}
-        />
+        <CardContainer calculation={areas} />
       </Layout>
-    </>
+    </MainLayout>
   );
 };
 

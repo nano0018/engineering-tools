@@ -21,7 +21,7 @@ const CardLayout = ({ calc }) => {
 
   return (
     <form
-      className="flex flex-row border rounded-lg w-80 justify-center items-center h-auto"
+      className="flex flex-col border rounded-lg w-80 h-72 justify-center items-center"
       onSubmit={handleCalculation}
     >
       <section className="text-center pt-2">
@@ -29,10 +29,10 @@ const CardLayout = ({ calc }) => {
           {calc.title}
         </h2>
         <article className="w-full text-left px-4">
-          <legend className="text-sm text-gray-400 w-full text-justify">
+          <legend className="text-sm text-gray-400 w-full text-justify mb-2">
             {calc.description}
           </legend>
-          <section className="mb-3">
+          <section className="flex flex-col justify-center mb-3 w-full h-20">
             {calc.fields.map((field, index) => (
               <FieldContainer
                 key={id + index}

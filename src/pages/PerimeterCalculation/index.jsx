@@ -1,18 +1,15 @@
 import Layout from '@components/Layout';
-import Navbar from '@components/Navbar';
 import CardContainer from '@components/CardContainer';
 import { perimeters } from '@/data/perimeterFieldList';
+import MainLayout from '@components/MainLayout';
 
 const PerimeterCalculation = () => {
   return (
-    <>
-      <Navbar />
+    <MainLayout>
       <Layout>
-        <CardContainer
-        calculation={perimeters}
-        />
+        <CardContainer calculation={perimeters} />
       </Layout>
-    </>
+    </MainLayout>
   );
 };
 
